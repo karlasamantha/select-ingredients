@@ -12,17 +12,11 @@ class RecipeItem extends Component {
     listIngredients: PropTypes.func
   }
 
-  state = {
-    toggle: false
-  }
-
   render() {
     const { name, type, cook_time, ingredients } = this.props.recipe;
-    const { toggle } = this.state;
 
     return (
       <div className="recipe-item">
-        
         <h3 className="recipe-title">{name}</h3>
         <span className="recipe-type">{type}</span>
         <span className="recipe-time">{cook_time}min</span>
@@ -34,6 +28,10 @@ class RecipeItem extends Component {
             })
           }
         </ul>
+        <input 
+          type="checkbox" 
+          className="recipe-selector" 
+          onChange={() => this.props.listIngredients(ingredients)} />
       </div>
     )
   }
