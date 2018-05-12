@@ -3,16 +3,20 @@ import PropTypes from 'prop-types';
 
 class IngredientsList extends Component {
   static propTypes = {
-    ingredients: PropTypes.array.isRequired
+    ingredients: PropTypes.array
   }
   
   render() {
     return(
       <div className="ingredients">
         <h2>Selected Ingredients</h2>
-
-        <div className="filtered-ingredients">
-        </div>
+        <ul className="filtered-ingredients">
+          {
+            Object.keys(this.props.ingredients).map(key => (
+              <li key={key}>{this.props.ingredients[key]}</li>
+            ))
+          }
+        </ul>
       </div>
     )
   }
