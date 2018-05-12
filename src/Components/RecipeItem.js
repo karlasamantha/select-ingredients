@@ -4,24 +4,25 @@ import PropTypes from 'prop-types';
 class RecipeItem extends Component {
   static propTypes = {
     recipe: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      cook_time: PropTypes.number.isRequired,
-      ingredients: PropTypes.array.isRequired
-    })
+      name: PropTypes.string,
+      type: PropTypes.string,
+      cook_time: PropTypes.number,
+      ingredients: PropTypes.array
+    }),
+    listIngredients: PropTypes.func
   }
 
-  listIngredients = (evt) => {
-    evt.preventDefault();
-
-    console.log(evt.target)
+  state = {
+    toggle: false
   }
 
   render() {
     const { name, type, cook_time, ingredients } = this.props.recipe;
+    const { toggle } = this.state;
 
     return (
       <div className="recipe-item">
+        
         <h3 className="recipe-title">{name}</h3>
         <span className="recipe-type">{type}</span>
         <span className="recipe-time">{cook_time}min</span>
