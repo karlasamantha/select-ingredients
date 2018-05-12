@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import './App.css';
-
 import RECIPES from './recipes.json';
-import RecipeList from './Components/RecipeList';
+import RecipeItem from './Components/RecipeItem';
 import IngredientsList from './Components/IngredientsList';
 
 class App extends Component {
@@ -12,15 +9,35 @@ class App extends Component {
     ingredients: []
   }
 
+  listIngredients = (ingredient) => {
+    const ingredients = {...this.state.ingredients};
+    // fishes[`fish${Date.now()}`] = fish; //update list
+    this.setState({ ingredients });
+  }
+
   render() {
+    const recipes = RECIPES;
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Recipes</h1>
         </header>
         <div className="main-wrapper">
-          <RecipeList recipes={RECIPES}/>
-          <IngredientsList ingredients={this.state.ingredients} />
+          <div className="recipe-list">
+            {
+              recipes.map((recipe, index) => {
+                return <RecipeItem 
+                    key={index}
+                    index={index}
+                    recipe={recipe}
+                    listIngredients={this.listIngredients}
+                  />
+              })
+            }
+          </div>
+          <IngredientsList 
+            ingredients={this.state.ingredients} />
         </div>
       </div>
     );
