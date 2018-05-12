@@ -9,10 +9,8 @@ class App extends Component {
     ingredients: []
   }
 
-  listIngredients = (ingredient) => {
-    const ingredients = {...this.state.ingredients};
-    // fishes[`fish${Date.now()}`] = fish; //update list
-    this.setState({ ingredients });
+  listIngredients = (ingredients) => {
+    this.setState({ ingredients: ingredients})
   }
 
   render() {
