@@ -41,15 +41,13 @@ class App extends Component {
                   recipes.map((recipe, index) => {
                     return <RecipeItem 
                         key={index}
-                        index={index}
                         recipe={recipe}
                         listIngredients={this.listIngredients}
                       />
                   })
                 }
               </div>
-              <IngredientsList 
-                ingredients={this.state.ingredients} />
+              <IngredientsList ingredients={this.state.ingredients} />
             </div>
           </div>
         </div>
