@@ -31,7 +31,7 @@ class RecipeItem extends Component {
         <input 
           type="checkbox" 
           className="recipe-selector" 
-          onChange={() => this.props.listIngredients(ingredients, this.props.index)} />
+          onChange={(evt) => this.props.listIngredients(ingredients, evt)} />
       </div>
     )
   }
