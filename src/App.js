@@ -9,10 +9,20 @@ class App extends Component {
     ingredients: []
   }
 
-  listIngredients = (ingredients, key) => {
+  listIngredients = (ingredients, event) => {
+    let filteredList = [];
+    const isChecked = event.target.checked;
     let newList = [...this.state.ingredients, ...ingredients];
-    let filteredList = [...(new Set(newList))];
-    this.setState({ ingredients: filteredList.sort()})
+    
+    if (isChecked) {
+      filteredList = [...(new Set(newList))];
+    } else {
+      filteredList = newList.filter(function(ingredient) {
+        return ingredients.indexOf(ingredient) === -1;
+      })
+    }
+
+    this.setState({ ingredients: filteredList.sort() })
   }
 
   render() {
@@ -25,7 +35,7 @@ class App extends Component {
         </header>
         <div className="container">
           <div className="row">
-            <div className="main-wrapper col-xs-12">
+            <div className="main-wrapper">
               <div className="recipe-list col-xs-6">
                 {
                   recipes.map((recipe, index) => {
