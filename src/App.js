@@ -9,8 +9,10 @@ class App extends Component {
     ingredients: []
   }
 
-  listIngredients = (ingredients) => {
-    this.setState({ ingredients: ingredients})
+  listIngredients = (ingredients, key) => {
+    let newList = [...this.state.ingredients, ...ingredients];
+    let filteredList = [...(new Set(newList))];
+    this.setState({ ingredients: filteredList.sort()})
   }
 
   render() {
