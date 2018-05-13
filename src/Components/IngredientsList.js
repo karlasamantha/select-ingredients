@@ -8,7 +8,7 @@ class IngredientsList extends Component {
   
   render() {
     return(
-      <div className="ingredients">
+      <div className="ingredients col-xs-6">
         <h2>Selected Ingredients</h2>
         <ul className="filtered-ingredients">
           {
