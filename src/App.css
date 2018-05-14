@@ -13,7 +13,6 @@ ul {
 
 .App {
   text-align: center;
-  position: relative;
 }
 
 .App-header {
@@ -69,4 +68,15 @@ ul {
 
 .ingredients h2 {
   text-align: center;
+  margin: 10px 30px;
+}
+
+.ingredients-wrapper {
+  position: relative;
+  margin: 10px 0;
+}
+
+.ingredients {
+  position: fixed;
+  border: 1px solid gray;
 }

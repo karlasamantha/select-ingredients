@@ -8,15 +8,17 @@ class IngredientsList extends Component {
   
   render() {
     return(
-      <div className="ingredients col-xs-6">
-        <h2>Selected Ingredients</h2>
-        <ul className="filtered-ingredients">
-          {
-            Object.keys(this.props.ingredients).map(key => (
-              <li key={key}>{this.props.ingredients[key]}</li>
-            ))
-          }
-        </ul>
+      <div className="ingredients-wrapper col-xs-6">
+        <div className="ingredients">
+          <h2>Selected Ingredients</h2>
+          <ul className="filtered-ingredients">
+            {
+              Object.keys(this.props.ingredients).map(key => (
+                <li key={key}>{this.props.ingredients[key]}</li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     )
   }
