@@ -17,9 +17,7 @@ class App extends Component {
     if (isChecked) {
       filteredList = [...(new Set(newList))];
     } else {
-      filteredList = newList.filter(function(ingredient) {
-        return ingredients.indexOf(ingredient) === -1;
-      })
+      filteredList = newList.filter(ingredient => ingredients.indexOf(ingredient) === -1);
     }
 
     this.setState({ ingredients: filteredList.sort() })
